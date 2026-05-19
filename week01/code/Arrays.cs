@@ -8,12 +8,20 @@ public static class Arrays
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     public static double[] MultiplesOf(double number, int length)
     {
-        // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Step 1: Create a new array with size equal to 'length'
+        // Step 2: Loop from i = 0 to i < length
+        // Step 3: For each position, calculate the multiple using:
+        //         number * (i + 1)
+        // Step 4: Store the result in the array at index i
+        // Step 5: Return the completed array
+        double[] result = new double[length];
 
-        return []; // replace this return statement with your own
+        for (int i = 0; i < length; i++)
+        {
+            result[i] = number * (i + 1);
+        }
+
+        return result;
     }
 
     /// <summary>
@@ -25,9 +33,20 @@ public static class Arrays
     /// </summary>
     public static void RotateListRight(List<int> data, int amount)
     {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Step 1: Find the split point using: data.Count - amount
+        // Step 2: Take the right part of the list (last 'amount' elements)
+        // Step 3: Take the left part of the list (first elements before split)
+        // Step 4: Clear the original list
+        // Step 5: Add the right part first
+        // Step 6: Add the left part after it
+
+        int splitIndex = data.Count - amount;
+
+        List<int> rightPart = data.GetRange(splitIndex, amount);
+        List<int> leftPart = data.GetRange(0, splitIndex);
+
+        data.Clear();
+        data.AddRange(rightPart);
+        data.AddRange(leftPart);
     }
 }
