@@ -6,7 +6,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Add two items with different priorities.
     // Expected Result: The item with the highest priority should be dequeued first.
-    // Defect(s) Found: None.
+    // Defect(s) Found: No defects were identified; the queue correctly dequeued the item with the highest priority first.
     public void TestPriorityQueue_1()
     {
         var pq = new PriorityQueue();
@@ -22,7 +22,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Add three items with different priorities.
     // Expected Result: Items should be dequeued from highest priority to lowest priority.
-    // Defect(s) Found: None.
+    // Defect(s) Found: No defects were identified; queue correctly dequeued items in descending priority order.
     public void TestPriorityQueue_2()
     {
         var pq = new PriorityQueue();
@@ -39,7 +39,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Add multiple items with same priority.
     // Expected Result: Items should come out in FIFO order.
-    // Defect(s) Found: Queue did not preserve insertion order for equal priorities.
+    // Defect(s) Found: Items with the same priority were dequeued out of the order they were originally enqueued.
     public void TestPriorityQueue_SamePriority()
     {
         var pq = new PriorityQueue();
@@ -56,7 +56,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Add items with negative priorities.
     // Expected Result: Highest numerical priority should be dequeued first.
-    // Defect(s) Found: Negative priorities were not handled correctly.
+    // Defect(s) Found: Items with higher negative priority values were dequeued after lower priority items instead of before them.
     public void TestPriorityQueue_NegativePriorities()
     {
         var pq = new PriorityQueue();
@@ -73,7 +73,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Add a single item.
     // Expected Result: That item should be returned.
-    // Defect(s) Found: None.
+    // Defect(s) Found: No defects were identified; queue correctly dequeued highest-priority item first.
     public void TestPriorityQueue_SingleItem()
     {
         var pq = new PriorityQueue();
@@ -86,7 +86,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Add items with zero priority.
     // Expected Result: Items should still follow insertion order.
-    // Defect(s) Found: Zero priority items were not handled correctly.
+    // Defect(s) Found: Items with zero priority were not dequeued in the same order they were added to the queue.
     public void TestPriorityQueue_ZeroPriority()
     {
         var pq = new PriorityQueue();
@@ -101,7 +101,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Attempt to dequeue from empty queue.
     // Expected Result: InvalidOperationException with correct message.
-    // Defect(s) Found: Queue did not throw correct exception message.
+    // Defect(s) Found: Dequeueing an empty queue did not throw an InvalidOperationException with the message "The queue is empty."
     public void TestPriorityQueue_EmptyThrows()
     {
         var pq = new PriorityQueue();
